@@ -1,0 +1,26 @@
+{
+  "name": "strip_tokens_free",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/luciafox502/Strip_Tokens_Free.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/luciafox502/Strip_Tokens_Free/issues"
+  },
+  "homepage": "https://github.com/luciafox502/Strip_Tokens_Free#readme",
+  "dependencies": {
+    "@astrojs/sitemap": "^3.7.4",
+    "@fontsource/geist-mono": "^5.3.0",
+    "@fontsource/geist-sans": "^5.3.0",
+    "astro": "^7.3.3"
+  }
+}

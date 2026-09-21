@@ -1,0 +1,40 @@
+---
+import { SITE } from '../data/siteConfig';
+
+interface BreadcrumbItem {
+  name: string;
+  url?: string;
+}
+
+interface Props {
+  items: BreadcrumbItem[];
+}
+
+const { items } = Astro.props;
+---
+
+<nav class="breadcrumbs-nav" aria-label="Breadcrumbs">
+  <ol class="breadcrumbs-list" itemscope itemtype="https://schema.org/BreadcrumbList">
+    <li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+      <a href={`${SITE.base}/`} itemprop="item">
+        <span itemprop="name">Home</span>
+      </a>
+      <meta itemprop="position" content="1" />
+    </li>
+    {items.map((item, idx) => (
+      <>
+        <span class="breadcrumbs-sep" aria-hidden="true">/</span>
+        <li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+          {item.url ? (
+            <a href={item.url} itemprop="item">
+              <span itemprop="name">{item.name}</span>
+            </a>
+          ) : (
+            <span itemprop="name" aria-current="page" style="color: var(--text-primary);">{item.name}</span>
+          )}
+          <meta itemprop="position" content={String(idx + 2)} />
+        </li>
+      </>
+    ))}
+  </ol>
+</nav>

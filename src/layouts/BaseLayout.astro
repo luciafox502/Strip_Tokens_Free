@@ -1,0 +1,178 @@
+---
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import StickyBottomBar from '../components/StickyBottomBar.astro';
+import { SITE } from '../data/siteConfig';
+import '../styles/global.css';
+
+interface FAQItem {
+  question: string;
+  answer: string;
+}
+
+interface Props {
+  title: string;
+  description: string;
+  canonicalPath?: string;
+  type?: 'website' | 'article';
+  faqList?: FAQItem[];
+  publishedTime?: string;
+  modifiedTime?: string;
+}
+
+const {
+  title,
+  description,
+  canonicalPath = '',
+  type = 'article',
+  faqList = [],
+  publishedTime = SITE.publishedDate,
+  modifiedTime = '2026-09-17',
+} = Astro.props;
+
+// Determine clean canonical URL
+const cleanPath = canonicalPath ? (canonicalPath.startsWith('/') ? canonicalPath : `/${canonicalPath}`) : '';
+const canonicalUrl = `${SITE.siteUrl}${cleanPath ? (cleanPath.endsWith('/') ? cleanPath : `${cleanPath}/`) : '/'}`;
+
+// Schemas
+const orgSchema = {
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  "name": "StripTokens Free Safety Guide",
+  "url": `${SITE.siteUrl}/`,
+  "logo": `${SITE.siteUrl}/images/security-badge.svg`,
+  "description": "Independent security, consumer protection, and legitimate token verification resource for live cam platforms.",
+  "sameAs": [
+    SITE.youtubeShortsUrl
+  ]
+};
+
+const websiteSchema = {
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  "name": "StripTokens Free Safety Guide",
+  "url": `${SITE.siteUrl}/`,
+  "potentialAction": {
+    "@type": "SearchAction",
+    "target": `${SITE.siteUrl}/stripchat-token-faq/?q={search_term_string}`,
+    "query-input": "required name=search_term_string"
+  }
+};
+
+const articleSchema = {
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": canonicalUrl
+  },
+  "headline": title,
+  "description": description,
+  "image": [
+    `${SITE.siteUrl}/images/token-mechanics.svg`,
+    `${SITE.siteUrl}/images/scam-anatomy.svg`
+  ],
+  "datePublished": publishedTime,
+  "dateModified": modifiedTime,
+  "author": {
+    "@type": "Person",
+    "name": SITE.author
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "StripTokens Free Safety Guide",
+    "logo": {
+      "@type": "ImageObject",
+      "url": `${SITE.siteUrl}/images/security-badge.svg`
+    }
+  }
+};
+
+const videoSchema = {
+  "@context": "https://schema.org",
+  "@type": "VideoObject",
+  "name": "Watch: StripChat Free Tokens Safety Guide",
+  "description": "Educational guide exposing StripChat token generators, mod APK scams, server-side balance architecture, and legitimate promotional token methods.",
+  "thumbnailUrl": [
+    SITE.youtubeThumbnail,
+    `${SITE.siteUrl}/images/video-poster.svg`
+  ],
+  "uploadDate": "2026-09-17T08:00:00Z",
+  "embedUrl": SITE.youtubeEmbedUrl,
+  "contentUrl": SITE.youtubeShortsUrl,
+  "publisher": {
+    "@type": "Organization",
+    "name": "StripTokens Free Safety Guide"
+  }
+};
+
+const faqSchema = faqList && faqList.length > 0 ? {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": faqList.map((faq) => ({
+    "@type": "Question",
+    "name": faq.question,
+    "acceptedAnswer": {
+      "@type": "Answer",
+      "text": faq.answer
+    }
+  }))
+} : null;
+---
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>{title}</title>
+  <meta name="description" content={description} />
+  <link rel="canonical" href={canonicalUrl} />
+
+  <!-- Google Search Console Verification Tag -->
+  <meta name="google-site-verification" content={SITE.gscVerification} />
+
+  <!-- Open Graph -->
+  <meta property="og:type" content={type} />
+  <meta property="og:title" content={title} />
+  <meta property="og:description" content={description} />
+  <meta property="og:url" content={canonicalUrl} />
+  <meta property="og:site_name" content="StripTokens Free Safety Guide" />
+  <meta property="og:locale" content="en_US" />
+  <meta property="og:image" content={`${SITE.siteUrl}/images/token-mechanics.svg`} />
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content={title} />
+  <meta name="twitter:description" content={description} />
+  <meta name="twitter:image" content={`${SITE.siteUrl}/images/token-mechanics.svg`} />
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/svg+xml" href={`${SITE.base}/images/favicon.svg`} />
+
+  <!-- Structured Data JSON-LD -->
+  {type === 'website' && (
+    <script type="application/ld+json" set:html={JSON.stringify(orgSchema)} />
+  )}
+  {type === 'website' && (
+    <script type="application/ld+json" set:html={JSON.stringify(websiteSchema)} />
+  )}
+  {type === 'article' && (
+    <script type="application/ld+json" set:html={JSON.stringify(articleSchema)} />
+  )}
+  <script type="application/ld+json" set:html={JSON.stringify(videoSchema)} />
+  {faqSchema && (
+    <script type="application/ld+json" set:html={JSON.stringify(faqSchema)} />
+  )}
+</head>
+<body>
+  <Header currentPath={Astro.url.pathname} />
+  
+  <main id="main-content">
+    <slot />
+  </main>
+
+  <Footer />
+  <StickyBottomBar currentPath={Astro.url.pathname} />
+</body>
+</html>

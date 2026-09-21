@@ -1,0 +1,49 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { SITE } from '../data/siteConfig';
+---
+
+<BaseLayout
+  title="404 Page Not Found – StripChat Free Tokens Safety Guide"
+  description="The requested page could not be found on the StripChat Free Tokens Safety Guide. Explore verified guides on legitimate promotions, scam warnings, and FAQ."
+  canonicalPath="/404.html"
+>
+  <div class="container article-container" style="padding-top: 4rem; padding-bottom: 4rem; text-align: center;">
+    <div style="display: inline-flex; align-items: center; justify-content: center; width: 72px; height: 72px; border-radius: 50%; background: var(--danger-bg); border: 1px solid var(--danger-border); margin-bottom: 1.5rem;">
+      <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="#ef4444" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+        <circle cx="12" cy="12" r="10"></circle>
+        <line x1="12" y1="8" x2="12" y2="12"></line>
+        <line x1="12" y1="16" x2="12.01" y2="16"></line>
+      </svg>
+    </div>
+    
+    <h1 style="font-size: 2.5rem; margin-bottom: 1rem;">404: Page Not Found</h1>
+    <p style="font-size: 1.15rem; color: var(--text-secondary); max-width: 580px; margin: 0 auto 2rem auto;">
+      The URL you requested does not exist or may have been relocated. When browsing token promotions and safety materials, ensure you are accessing authoritative, verified URLs.
+    </p>
+
+    <div class="cards-grid" style="text-align: left; margin-bottom: 2.5rem;">
+      <div class="feature-card">
+        <h3>Homepage</h3>
+        <p>Explore the comprehensive overview of legitimate StripChat token mechanics and verification standards.</p>
+        <p style="margin-top: 1rem;"><a href={`${SITE.base}/`}>Visit Homepage &rarr;</a></p>
+      </div>
+
+      <div class="feature-card">
+        <h3>Legitimate Offers</h3>
+        <p>Understand how authentic promotional tokens, marketing pools, and hourly draws actually function.</p>
+        <p style="margin-top: 1rem;"><a href={`${SITE.base}/stripchat-free-tokens/`}>Read Token Guide &rarr;</a></p>
+      </div>
+
+      <div class="feature-card">
+        <h3>Scam Prevention</h3>
+        <p>Discover why token generators, cheat engines, and mod APKs present severe cybersecurity hazards.</p>
+        <p style="margin-top: 1rem;"><a href={`${SITE.base}/stripchat-token-scams/`}>Read Scam Warnings &rarr;</a></p>
+      </div>
+    </div>
+
+    <a href={`${SITE.base}/`} class="nav-cta-btn" style="padding: 0.75rem 1.75rem; font-size: 1rem;">
+      Return to Main Guide
+    </a>
+  </div>
+</BaseLayout>
