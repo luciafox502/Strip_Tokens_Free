@@ -1,0 +1,44 @@
+---
+import { SITE } from '../data/siteConfig';
+
+interface Props {
+  currentPath?: string;
+}
+
+const { currentPath = '' } = Astro.props;
+---
+
+<aside class="sticky-bottom-bar" aria-label="Quick links and token offer verification bar">
+  <div class="container">
+    <div class="sticky-bar-inner">
+      <div class="sticky-draw-section">
+        <span class="draw-badge">50 TOKENS DRAW HOURLY</span>
+        <div class="draw-links">
+          {SITE.thirdPartyOffers.map((offer) => (
+            <a
+              href={offer.url}
+              target="_blank"
+              rel="noopener noreferrer nofollow"
+              class="draw-link-pill"
+              title={`Visit third-party offer at ${offer.name} (Independent verification required)`}
+            >
+              {offer.name} ↗
+            </a>
+          ))}
+        </div>
+      </div>
+
+      <nav class="sticky-nav-items" aria-label="Quick navigation links">
+        <a href={`${SITE.base}/`} class="sticky-nav-link">Home</a>
+        <a href={`${SITE.base}/stripchat-free-tokens/`} class="sticky-nav-link">Free Tokens</a>
+        <a href={`${SITE.base}/stripchat-token-scams/`} class="sticky-nav-link">Scam Warning</a>
+        <a href={`${SITE.base}/stripchat-token-faq/`} class="sticky-nav-link">FAQ</a>
+        <a href="#video-guide" class="sticky-nav-link">Watch Video</a>
+        <a href="#safety-guide" class="sticky-nav-link">Safety Guide</a>
+        <a href={`${SITE.base}/stripchat-free-tokens/#evaluating-offers`} class="sticky-cta-btn">
+          Check Legitimate Token Offers
+        </a>
+      </nav>
+    </div>
+  </div>
+</aside>

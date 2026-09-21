@@ -1,0 +1,48 @@
+---
+import { SITE } from '../data/siteConfig';
+
+interface Props {
+  currentPath?: string;
+}
+
+const { currentPath = '' } = Astro.props;
+
+const navItems = [
+  { label: 'Home', href: `${SITE.base}/` },
+  { label: 'Legit Token Offers', href: `${SITE.base}/stripchat-free-tokens/` },
+  { label: 'Scam Warnings', href: `${SITE.base}/stripchat-token-scams/` },
+  { label: 'FAQ', href: `${SITE.base}/stripchat-token-faq/` },
+];
+---
+
+<header class="site-header">
+  <div class="container header-inner">
+    <a href={`${SITE.base}/`} class="site-logo" aria-label="StripChat Free Tokens Safety Guide Homepage">
+      <span>StripTokens</span>
+      <span class="logo-badge">Legit Guide</span>
+    </a>
+
+    <nav class="nav-desktop" aria-label="Primary Navigation">
+      {navItems.map((item) => {
+        const isActive = currentPath === item.href || (item.href !== `${SITE.base}/` && currentPath.startsWith(item.href));
+        return (
+          <a
+            href={item.href}
+            class={`nav-link ${isActive ? 'active' : ''}`}
+            aria-current={isActive ? 'page' : undefined}
+          >
+            {item.label}
+          </a>
+        );
+      })}
+      <a href="#safety-guide" class="nav-cta-btn">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+        <span>Safety Checklist</span>
+      </a>
+    </nav>
+
+    <div class="mobile-menu-links" style="display: none;">
+      <!-- For mobile quick navigation -->
+    </div>
+  </div>
+</header>

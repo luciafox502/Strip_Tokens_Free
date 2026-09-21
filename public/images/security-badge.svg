@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 120" width="400" height="120">
+  <rect width="400" height="120" rx="8" fill="#12161f" stroke="#2b3347" stroke-width="2"/>
+  <circle cx="60" cy="60" r="36" fill="#181d28" stroke="#3b82f6" stroke-width="3"/>
+  <path d="M60 38 L72 44 V56 C72 65 67 72 60 75 C53 72 48 65 48 56 V44 Z" fill="#3b82f6"/>
+  <text x="120" y="52" fill="#f8fafc" font-family="'Geist Sans', -apple-system, sans-serif" font-weight="700" font-size="20">StripTokens Safety Guide</text>
+  <text x="120" y="76" fill="#94a3b8" font-family="'Geist Sans', -apple-system, sans-serif" font-weight="400" font-size="14">Independent Consumer Verification &amp; Security</text>
+</svg>

@@ -1,0 +1,10 @@
+User-agent: *
+Allow: /
+
+# Resources
+Allow: /Strip_Tokens_Free/_astro/
+Allow: /Strip_Tokens_Free/images/
+Allow: /Strip_Tokens_Free/fonts/
+
+# Sitemap
+Sitemap: https://luciafox502.github.io/Strip_Tokens_Free/sitemap-index.xml

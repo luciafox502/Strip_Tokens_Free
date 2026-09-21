@@ -1,0 +1,38 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 450" width="800" height="450">
+  <rect width="800" height="450" fill="#0a0c10"/>
+  <rect x="20" y="20" width="760" height="410" rx="12" fill="#12161f" stroke="#2b3347" stroke-width="2"/>
+  <text x="50" y="65" fill="#f8fafc" font-family="'Geist Sans', -apple-system, sans-serif" font-weight="700" font-size="22">Anatomy of a Fake Token Generator Phishing Funnel</text>
+  <text x="50" y="92" fill="#94a3b8" font-family="'Geist Sans', -apple-system, sans-serif" font-size="14">How fraudulent scripts lure visitors with unrealistic free token promises to extract value or data</text>
+
+  <!-- Step 1 -->
+  <rect x="50" y="130" width="210" height="220" rx="8" fill="#181d28" stroke="#ef4444" stroke-width="2"/>
+  <circle cx="75" cy="155" r="14" fill="#ef4444"/>
+  <text x="75" y="160" fill="#ffffff" font-family="'Geist Sans', -apple-system, sans-serif" font-weight="700" font-size="14" text-anchor="middle">1</text>
+  <text x="100" y="160" fill="#f8fafc" font-family="'Geist Sans', -apple-system, sans-serif" font-weight="700" font-size="15">The Bait: Free TK</text>
+  <text x="65" y="195" fill="#cbd5e1" font-family="'Geist Sans', -apple-system, sans-serif" font-size="13">• Claims "99,999 Tokens"</text>
+  <text x="65" y="220" fill="#cbd5e1" font-family="'Geist Sans', -apple-system, sans-serif" font-size="13">• Fake terminal animation</text>
+  <text x="65" y="245" fill="#cbd5e1" font-family="'Geist Sans', -apple-system, sans-serif" font-size="13">• "Connecting to server..."</text>
+  <text x="65" y="270" fill="#94a3b8" font-family="'Geist Sans', -apple-system, sans-serif" font-size="12">Simulated loading bars create false sense of reality</text>
+
+  <!-- Step 2 -->
+  <rect x="295" y="130" width="210" height="220" rx="8" fill="#181d28" stroke="#f59e0b" stroke-width="2"/>
+  <circle cx="320" cy="155" r="14" fill="#f59e0b"/>
+  <text x="320" y="160" fill="#000000" font-family="'Geist Sans', -apple-system, sans-serif" font-weight="700" font-size="14" text-anchor="middle">2</text>
+  <text x="345" y="160" fill="#f8fafc" font-family="'Geist Sans', -apple-system, sans-serif" font-weight="700" font-size="15">The Trap: Lockout</text>
+  <text x="310" y="195" fill="#cbd5e1" font-family="'Geist Sans', -apple-system, sans-serif" font-size="13">• "Human Verification"</text>
+  <text x="310" y="220" fill="#cbd5e1" font-family="'Geist Sans', -apple-system, sans-serif" font-size="13">• Demands Password / PIN</text>
+  <text x="310" y="245" fill="#cbd5e1" font-family="'Geist Sans', -apple-system, sans-serif" font-size="13">• Forces APK download</text>
+  <text x="310" y="270" fill="#94a3b8" font-family="'Geist Sans', -apple-system, sans-serif" font-size="12">Redirects to CPA survey lock or credential harvester</text>
+
+  <!-- Step 3 -->
+  <rect x="540" y="130" width="210" height="220" rx="8" fill="#181d28" stroke="#ef4444" stroke-width="2"/>
+  <circle cx="565" cy="155" r="14" fill="#ef4444"/>
+  <text x="565" y="160" fill="#ffffff" font-family="'Geist Sans', -apple-system, sans-serif" font-weight="700" font-size="14" text-anchor="middle">3</text>
+  <text x="590" y="160" fill="#f8fafc" font-family="'Geist Sans', -apple-system, sans-serif" font-weight="700" font-size="15">The Damage</text>
+  <text x="555" y="195" fill="#fca5a5" font-family="'Geist Sans', -apple-system, sans-serif" font-size="13">• Stolen login credentials</text>
+  <text x="555" y="220" fill="#fca5a5" font-family="'Geist Sans', -apple-system, sans-serif" font-size="13">• Adware / Spyware on device</text>
+  <text x="555" y="245" fill="#fca5a5" font-family="'Geist Sans', -apple-system, sans-serif" font-size="13">• Unauthorized billing</text>
+  <text x="555" y="270" fill="#fca5a5" font-family="'Geist Sans', -apple-system, sans-serif" font-size="13">• Account ban for abuse</text>
+
+  <text x="50" y="405" fill="#64748b" font-family="'Geist Sans', -apple-system, sans-serif" font-size="12">Figure 1.2: Phishing mechanics diagram showing the transition from simulated token generation to personal data exploitation.</text>
+</svg>
